@@ -1,0 +1,21 @@
+package com.example.grocerystore.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "status")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Status {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+}
