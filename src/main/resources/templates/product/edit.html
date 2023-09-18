@@ -14,9 +14,9 @@
     <form th:method="PATH" th:action="@{/product/update/{id}(id=${product.id})}" th:object="${product}">
         <input type="hidden" name="id" th:field="*{id}">
         <div class="mb-3">
-            <label for="photo.path" class="form-label">Ссылка на фото:</label>
-            <input th:field="*{photo.path}" type="text" id="photo.path" class="form-control">
-            <span th:if="${#fields.hasErrors('photo.path')}" th:errors="*{photo.path}" class="text-danger">Вы не ввели ссылку на фото продукта</span>
+            <label for="path" class="form-label">Ссылка на фото:</label>
+            <input th:field="*{path}" type="text" id="path" class="form-control">
+            <span th:if="${#fields.hasErrors('path')}" th:errors="*{path}" class="text-danger">Вы не ввели ссылку на фото продукта</span>
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">Названия:</label>

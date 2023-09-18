@@ -26,7 +26,7 @@ public class ProductMapperImpl implements ProductMapper {
         response.setDescription(product.getDescription());
         response.setPrice(product.getPrice());
         if (product.getPhoto() != null) {
-            response.setPhoto(photoMapper.toDto(product.getPhoto()));
+            response.setPath(photoMapper.toDto(product.getPhoto()).getPath());
         }
         return response;
     }

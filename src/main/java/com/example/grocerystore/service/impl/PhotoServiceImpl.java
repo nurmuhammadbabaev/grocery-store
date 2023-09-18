@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 @Service
@@ -33,12 +34,18 @@ public class PhotoServiceImpl implements PhotoService {
         return save(photo, urlPhoto);
     }
 
+    @Override
+    public Photo update(Photo photo, String urlPhoto) throws FileNotFoundException {
+        return save(photo, urlPhoto);
+    }
+
     private Photo save(Photo photo, String url) {
         File file = new File(url);
         photo.setPhotoName(file.getName());
         photo.setPath(url);
         photo.setSize(file.length());
         photo.setType("img/jpg");
-        return photoRepository.save(photo);
+        photoRepository.save(photo);
+        return photo;
     }
 }

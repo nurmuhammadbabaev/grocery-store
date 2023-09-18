@@ -13,4 +13,6 @@ public interface PhotoService {
     List<PhotoResponse> findAll();
 
     Photo create(String urlPhoto) throws FileNotFoundException;
+
+    Photo update(Photo photo,String urlPhoto) throws FileNotFoundException;
 }

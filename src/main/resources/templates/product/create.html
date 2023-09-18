@@ -14,8 +14,8 @@
     <form th:method="POST" th:action="@{/product/create}" th:object="${product}">
         <div class="mb-3">
             <label for="url" class="form-label">Ссылка на фото:</label>
-            <input th:field="*{urlPhoto}" type="text" id="url" class="form-control">
-            <span th:if="${#fields.hasErrors('urlPhoto')}" th:errors="*{urlPhoto}" class="text-danger">Вы не ввели ссылку на фото продукта</span>
+            <input th:field="*{path}" type="text" id="url" class="form-control">
+            <span th:if="${#fields.hasErrors('path')}" th:errors="*{path}" class="text-danger">Вы не ввели ссылку на фото продукта</span>
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">Названия:</label>

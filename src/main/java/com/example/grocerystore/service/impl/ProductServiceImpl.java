@@ -34,7 +34,7 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     public ProductResponse create(ProductRequest productRequest) throws FileNotFoundException {
         Product product = new Product();
-        Photo photo = photoService.create(productRequest.getUrlPhoto());
+        Photo photo = photoService.create(productRequest.getPath());
         product.setPhoto(photo);
         return productMapper.toDto(save(product, productRequest));
     }
@@ -45,8 +45,14 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductResponse update(Long id, ProductRequest productRequest) {
-        return productMapper.toDto(save(productRepository.findById(id).orElseThrow(), productRequest));
+    public ProductResponse update(Long id, ProductRequest productRequest) throws FileNotFoundException {
+        Product product = productRepository.findById(id).orElseThrow();
+        if (product.getPhoto() != null){
+            Photo photo = photoService.update(product.getPhoto(), productRequest.getPath());
+            product.setPhoto(photo);
+            return productMapper.toDto(save(product, productRequest));
+        }
+        return productMapper.toDto(save(product, productRequest));
     }
 
     @Override

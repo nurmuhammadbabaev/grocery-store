@@ -48,7 +48,7 @@ public class ProductController {
     }
 
     @PostMapping("/update/{id}")
-    public String update(@PathVariable("id") Long id, ProductRequest productRequest, Model model) {
+    public String update(@PathVariable("id") Long id, ProductRequest productRequest, Model model) throws FileNotFoundException {
         model.addAttribute("product", productService.update(id, productRequest));
         return "redirect:/product/search";
     }

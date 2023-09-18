@@ -33,7 +33,7 @@
             </thead>
             <tbody>
             <tr th:each="product : ${products}">
-                <td><img th:src="${product.getPhoto().getPath()}" alt="Изображение продукта" width="40" height="32" src="${product.getPhoto().getPath()}"></td>
+                <td><img th:src="${product.path}" alt="Изображение продукта" width="40" height="32"></td>
                 <td th:text="${product.name}"></td>
                 <td th:text="${product.description}"></td>
                 <td th:text="${product.price}"></td>

@@ -14,7 +14,7 @@ public interface ProductService {
 
     ProductResponse findById(Long id);
 
-    ProductResponse update(Long id, ProductRequest productRequest);
+    ProductResponse update(Long id, ProductRequest productRequest) throws FileNotFoundException;
 
     void delete(Long id);
 }
